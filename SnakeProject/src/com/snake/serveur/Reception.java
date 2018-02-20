@@ -30,7 +30,7 @@ public class Reception implements Runnable {
 				System.out.println(login+" : "+message);
 				//Gérer déconnexion
 				if (message.equals("Quitter")) {
-					System.out.println("Déconnexion de " + login + "...");
+					System.out.println("Deconnexion de " + login + "...");
 					out.println("Au revoir");
 					out.flush();
 					break;

@@ -34,7 +34,7 @@ public class ComServerToClients implements Runnable {
 			t4.start();
 
 		} catch (IOException e) {
-			System.err.println(login +"s'est déconnecté ");
+			System.err.println(login +"s'est deconnecte ");
 		}
 	}
 }

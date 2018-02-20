@@ -71,7 +71,7 @@ public class ComClientToserver extends JFrame  implements Runnable,Observer, Key
 
 
 		} catch (IOException e) {
-			System.err.println("Le serveur distant s'est déconnecté !");
+			System.err.println("Le serveur distant s'est deconnecte !");
 		}
 
 	}
