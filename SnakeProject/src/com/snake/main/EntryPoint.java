@@ -6,7 +6,7 @@ import com.snake.vue.StartView;
 public class EntryPoint {
 
 	public static void main(String[] args) {
-		StartView sv = new StartView();
+		//StartView sv = new StartView();
 		AuthenticationView av = new AuthenticationView();
 	}
 
