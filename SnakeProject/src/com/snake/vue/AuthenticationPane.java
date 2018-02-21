@@ -43,7 +43,7 @@ public class AuthenticationPane extends JPanel {
 	
 	public void init() {
 		this.setLayout(null);
-		//-----------------Connexion -----------------
+		//-----------------Connexion-----------------
 
 		pseudoCo = new JTextField();
 		pseudoCo.setPreferredSize(new Dimension(120,30));
@@ -59,7 +59,7 @@ public class AuthenticationPane extends JPanel {
 		this.add(connexion);
 		connexion.setBounds(90, 655, 130,30);
 		
-		//-----------------SnakeColor ------------------
+		//-----------------SnakeColor------------------
 		redColor = new JCheckBox();
 		redColor.setPreferredSize(new Dimension(45,45));
 		redColor.setHorizontalAlignment(AbstractButton.CENTER);
@@ -80,8 +80,8 @@ public class AuthenticationPane extends JPanel {
 		greenColor.setOpaque(false);
 		this.add(greenColor);
 		greenColor.setBounds(661, 355, 45, 45);
-		//-----------------Inscription -----------------
 		
+		//-----------------Inscription-----------------
 		pseudoIns = new JTextField(null);
 		pseudoIns.setPreferredSize(new Dimension(120,30));
 		this.add(pseudoIns);
@@ -102,6 +102,7 @@ public class AuthenticationPane extends JPanel {
 		inscription.setBounds(450, 655, 130,30);
 	}
 
+	//-----------------------Getters----------------------
 	public JCheckBox getRedColor() {
 		return redColor;
 	}

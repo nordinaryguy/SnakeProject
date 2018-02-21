@@ -7,21 +7,24 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import com.snake.model.Joueur;
+import com.snake.model.Serpent;
+import com.snake.model.SnakeEngine;
 
 public class AuthenticationView extends JFrame {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
+	private SnakeEngine se;
 	private AuthenticationPane ap;
 	private String pseudo;
 	private String password;
 	private String passwordConf;
 	private Color couleur;
 
-	public AuthenticationView() {
+	public AuthenticationView(SnakeEngine pse) {
+		this.se = pse;
 		this.setTitle("Online SnakeRPG");
 		this.setSize(750, 750);
 		this.setLocationRelativeTo(null); 
@@ -45,7 +48,7 @@ public class AuthenticationView extends JFrame {
 		this.ap.getGreenColor().addActionListener(new GreenColorListener());
 	}
 
-	//Class Pour les ActionListener des éléments de AuthenticationView
+	//Class Pour les ActionListener des elements de AuthenticationView
 	class BoutonConnexionListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -57,8 +60,9 @@ public class AuthenticationView extends JFrame {
 			}else {
 				JOptionPane.showMessageDialog(null, "Connexion en cours... login : [" +pseudo+"] mot de passe : ["+password+"]...", 
 						"Connexion infos",JOptionPane.INFORMATION_MESSAGE);
-				System.out.println(String.valueOf(password));
-
+				//System.out.println(String.valueOf(password));
+				se.controlConnexion(pseudo, password);
+				
 			}
 		}
 	}
@@ -80,12 +84,11 @@ public class AuthenticationView extends JFrame {
 					JOptionPane.showMessageDialog(null, "Erreur Inscription ! Aucune couleur sélectionnée !", 
 							"Erreur Couleur",JOptionPane.ERROR_MESSAGE);
 				}else {
-					Joueur j = new Joueur(pseudo, password, couleur);
+					se.snakeBuilder(pseudo, password, couleur);
 					JOptionPane.showMessageDialog(null, "Inscription en cours... login : ["+pseudo+"] mot de passe : ["+password+"]...", 
 							"Inscription infos",JOptionPane.INFORMATION_MESSAGE);
-					System.out.println(j.toString());
 				}
-				
+
 			}
 		}
 	}
@@ -102,8 +105,13 @@ public class AuthenticationView extends JFrame {
 				ap.getBlackColor().setEnabled(true);
 				ap.getGreenColor().setEnabled(true);
 			}
-			System.out.println(couleur.toString());
+			if (couleur == null) {
+				System.out.println("couleur = vide");
+			}else {
+				System.out.println(couleur);
+			}
 		}
+
 	}
 
 	class BlackColorListener implements ActionListener {
@@ -118,7 +126,11 @@ public class AuthenticationView extends JFrame {
 				ap.getRedColor().setEnabled(true);
 				ap.getGreenColor().setEnabled(true);
 			}
-			System.out.println(couleur.toString());
+			if (couleur == null) {
+				System.out.println("couleur = vide");
+			}else {
+				System.out.println(couleur);
+			}
 		}
 	}
 
@@ -134,7 +146,11 @@ public class AuthenticationView extends JFrame {
 				ap.getBlackColor().setEnabled(true);
 				ap.getRedColor().setEnabled(true);
 			}
-			System.out.println(couleur.toString());
+			if (couleur == null) {
+				System.out.println("couleur = vide");
+			}else {
+				System.out.println(couleur);
+			}
 		}
 	}
 }
